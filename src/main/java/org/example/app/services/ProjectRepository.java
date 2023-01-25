@@ -9,9 +9,7 @@ public interface ProjectRepository<T> {
 
     boolean removeItemById(Integer bookIdToRemove);
 
-    boolean removeItemByAuthor(String bookByAuthor);
-
-    boolean removeItemByTitle(String bookStringByTitle);
+    boolean removeItemByRegex(String bookStringByRegex);
 
     boolean removeItemBySize(Integer bookSize);
 

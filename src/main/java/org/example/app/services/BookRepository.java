@@ -40,22 +40,9 @@ public class BookRepository implements ProjectRepository<Book> {
     }
 
     @Override
-    public boolean removeItemByAuthor(String bookStringByAuthor) {
+    public boolean removeItemByRegex(String bookStringByRegex) {
         for (Book book : retreiveAll()) {
-            if (book.getAuthor().equals(bookStringByAuthor)) {
-                logger.info("remove book completed: " + book);
-                repo.remove(book);
-            } else {
-                logger.info("book don't found");
-            }
-        }
-        return false;
-    }
-
-    @Override
-    public boolean removeItemByTitle(String bookStringByTitle) {
-        for (Book book : retreiveAll()) {
-            Pattern pattern = Pattern.compile(bookStringByTitle, Pattern.CASE_INSENSITIVE);
+            Pattern pattern = Pattern.compile(bookStringByRegex, Pattern.CASE_INSENSITIVE);
             String title = book.getTitle();
             String author = book.getAuthor();
             Matcher matcherTitle = pattern.matcher(title);
