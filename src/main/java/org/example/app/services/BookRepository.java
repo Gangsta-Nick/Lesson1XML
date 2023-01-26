@@ -60,6 +60,19 @@ public class BookRepository implements ProjectRepository<Book> {
         return false;
     }
 
+//    OR
+//    public boolean remove (Book book, String field, String bookStringByRegex){
+//        Pattern pattern = Pattern.compile(bookStringByRegex, Pattern.CASE_INSENSITIVE);
+//        Matcher matcherTitle = pattern.matcher(field);
+//        if(matcherTitle.find()){
+//            logger.info("remove book by " + field + " completed: " + book);
+//            repo.remove(book);
+//            return true;
+//        }
+//        logger.info("book don't found");
+//        return false;
+//    }
+
     @Override
     public boolean removeItemBySize(Integer bookSize) {
         for (Book book : retreiveAll()) {
